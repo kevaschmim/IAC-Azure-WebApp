@@ -1,8 +1,8 @@
 const http = require('http');
 
 const server = http.createServer((request, response) => {
-    response.writeHead(200, {"Content-Type": "application/json"});
-    response.end(JSON.stringify({Today: today}));
+    response.setHeader("Content-Type","application/json");
+    response.end(JSON.stringify({ a: 1}));
 });
 
 const port = process.env.PORT || 1337;
