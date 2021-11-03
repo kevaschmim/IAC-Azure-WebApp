@@ -1,8 +1,17 @@
+let ts = Date.now();
+
+let date_time = new Date(ts);
+let date = date_time.getDate();
+let month = date_time.getMonth() + 1;
+let year = date_time.getFullYear();
+
+let fullDate = (year + "-" + month + "-" + date);
+
 const http = require('http');
 
 const server = http.createServer((request, response) => {
     response.setHeader("Content-Type","application/json");
-    response.end(JSON.stringify({ a: 1}, null, 3));
+    response.end(JSON.stringify({ a: fullDate}, null, 3));
 });
 
 const port = process.env.PORT || 1337;
