@@ -1,9 +1,11 @@
+//Get current Date
 let ts = Date.now();
 
 let date_time = new Date(ts);
-let date = date_time.getDate();
-let month = date_time.getMonth() + 1;
-let year = date_time.getFullYear();
+//Make sure to get UTC time
+let date = date_time.getUTCDate();
+let month = date_time.getUTCMonth() + 1;
+let year = date_time.getUTCFullYear();
 
 let fullDate = (year + "-" + month + "-" + date);
 
