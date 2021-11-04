@@ -40,7 +40,7 @@ This sample demonstrates how to manage your Azure websites using a node.js clien
 1. After the prereqs are met, move to the terraform folder
 
 ```git bash
-     cd .\terraform\
+cd .\terraform\
 ```
 
 2. Make your own **terraform.tfvars** file in this directory, using the **terraform.tfvars.example** file as a template.
@@ -53,6 +53,51 @@ This sample demonstrates how to manage your Azure websites using a node.js clien
 | `arm_password`        | Service Principal Secret value            | 
 | `arm_subscription_id` | Target subscription ID                    |  
 | `tenant_id`           | Target Tenant ID                          | 
+
+3. Initialize terraform
+
+```bash
+terraform init
+```
+
+4. Run terraform plan to see what is getting deployed
+
+```bash
+terraform plan -out tfplan
+```
+
+5. Run terraform apply to deploy the web app
+
+```bash
+terraform apply "tfplan"
+```
+
+6. If the plan is applied properly, you should see two outputs. One to show the repo was applied correctly as the source control for the web app, and another is the hostname to see the result.
+
+```bash
+    Outputs:
+
+    source_control = tolist([
+    {
+        "branch" = "main"
+        "manual_integration" = true
+        "repo_url" = "https://github.com/kevaschmim/IAC-Azure-WebApp"
+        "rollback_enabled" = false
+        "use_mercurial" = false
+    },
+    ])
+    web_app_dns = "https://<your_webapp_name>.azurewebsites.net"
+```
+
+7. Clicking on (or **curl**ing) the **web_app_dns** endpoint should show the desired result for the current UTC date.
+
+## Methodology explaination
+
+Like any good new tech project starts, I began by googling the items needed. I knew there would be a basic web app template I could use somewhere, and found one pretty quickly.
+
+After following the first tutorial link to deploy the basic web app I worked my way through the criteria to add the necessary components. Originally the source control of the web app was using the **node.js** template I linked below, and because I knew it would be needed to be edited I forked it into my repositories and worked on the **index.js** from there. I realized I could keep the same files all in one repo so I ported them over to this one so the terraform deployment and source files for the web app could be updated in the same place.
+
+
 ## Links used
 
 - [Create App Service app using a Terraform template](https://docs.microsoft.com/en-us/azure/app-service/provision-resource-terraform)
