@@ -1,0 +1,11 @@
+# This will be the Application ID from the service principal creation
+arm_principal = "SERVICE_PRINCIPAL_APP_ID"
+
+# Put your Service Principal Secret Here 
+arm_password = "SERVICE_PRINCIPAL_APP_SECRET"
+
+#Subscription ID of subscription you'd like to deploy to
+arm_subscription_id = "YOUR_SUBSCRIPTION_ID"
+
+#Your Azure Tenant the subscription resides in
+tenant_id = "YOUR_TENANT_ID"

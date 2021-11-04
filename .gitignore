@@ -28,6 +28,10 @@ override.tf.json
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 *tfplan*
 
+#Include terraform lock files 
+*.terraform.lock.hcl
+
+##Git ignore files from nodejs-docs-hello-world
 # Logs
 logs
 *.log
