@@ -102,11 +102,17 @@ terraform apply "tfplan"
 
 7. Clicking on (or **curl**ing) the **web_app_dns** endpoint should show the desired result for the current UTC date.
 
+8. Run terraform destroy to clean up all resources deployed
+
+```bash
+terraform destroy
+```
+
 ## Methodology
 
-Like any good new project starts, I began by googling the items needed. I knew there would be a basic web app template I could use somewhere, and found one pretty quickly.
+Like any new project starts, I began by googling the items needed. I knew there would be a basic web app template I could use somewhere, and found one pretty quickly.
 
-After following the first tutorial link to deploy the basic web app I worked my way through the criteria to add the necessary components. Originally the source control of the web app was using the **node.js** template I linked below, and because I knew it would be needed to be edited I forked it into my repositories and worked on the **index.js** from there. I realized I could keep the same files all in one repo so I ported them over to this one so the terraform deployment and source files for the web app could be updated in the same place.
+After following the first tutorial link to deploy the basic web app I worked my way through the criteria to add the necessary components. Originally the source control of the web app was using the **node.js** template I linked below, and because I knew it needed to be edited I forked it into my repositories and worked on the **index.js** from there. I realized I could keep the same files all in one repo so I ported them over to this one so the terraform deployment and source files for the web app could be updated in the same place.
 
  To get the correct UTC date I made sure to use the **.getUTC[time]** of each part of the date objects. To double check I was getting the UTC time and not my own time I also added the hour and minutes to output. I left it commented out in the **index.js** if you're interested in trying that out, otherwise it will output per the requirements.  
 
@@ -114,8 +120,9 @@ After following the first tutorial link to deploy the basic web app I worked my 
 
 ## Future Enhancements
 
-- I would like to update this to use an asyncronous call so that the time continually updates to the current time, like this [timeanddate](https://www.timeanddate.com/worldclock/timezone/utc) website I found to double check I was getting the right time
-- Related to the scm_Type issue, I would like to include a github action to update the web app whenever a change is pushed to main branch of this repo, something like this [example starter workflow](https://github.com/actions/starter-workflows/blob/1d8891efc2151b2290b1d93e8489f9b1f41bd047/deployments/azure.yml)
+- Update this to use an asyncronous call so that the time continually updates to the current time, like this [timeanddate](https://www.timeanddate.com/worldclock/timezone/utc) website I found to double check I was getting the right time
+- Include a github action to update the web app whenever a change is pushed to main branch of this repo, something like this [example starter workflow](https://github.com/actions/starter-workflows/blob/1d8891efc2151b2290b1d93e8489f9b1f41bd047/deployments/azure.yml)
+- Going along with the asyncronous update, I'd make sure the hour and minute times both showed 2 digits (i.e. 11:05 instead of 11:5 as it is now) 
 
 ## Links used
 
