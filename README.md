@@ -8,8 +8,7 @@ Builds a basic node.js web app that outputs the current UTC date in JSON format.
   - [Prerequisites](#prerequisites)
   - [How to run](#how-to-run)
     - [Parameters](#parameters)
-  - [Methodology explaination](#methodology-explaination)
-  - [Known issues](#known-issues)
+  - [Methodology](#methodology)
   - [Future Enhancements](#future-enhancements)
   - [Links used](#links-used)
 
@@ -21,7 +20,7 @@ Builds a basic node.js web app that outputs the current UTC date in JSON format.
 2. Clone the repository.
 
     ```git bash
-    git clone https://github.com:Azure-Samples/app-service-web-nodejs-manage.git
+    git clone https://github.com/kevaschmim/IAC-Azure-WebApp.git
     ```
 
 3. If you don't have a service principal, create an Azure service principal either through
@@ -103,19 +102,15 @@ terraform apply "tfplan"
 
 7. Clicking on (or **curl**ing) the **web_app_dns** endpoint should show the desired result for the current UTC date.
 
-## Methodology explaination
+## Methodology
 
-Like any good new tech project starts, I began by googling the items needed. I knew there would be a basic web app template I could use somewhere, and found one pretty quickly.
+Like any good new project starts, I began by googling the items needed. I knew there would be a basic web app template I could use somewhere, and found one pretty quickly.
 
 After following the first tutorial link to deploy the basic web app I worked my way through the criteria to add the necessary components. Originally the source control of the web app was using the **node.js** template I linked below, and because I knew it would be needed to be edited I forked it into my repositories and worked on the **index.js** from there. I realized I could keep the same files all in one repo so I ported them over to this one so the terraform deployment and source files for the web app could be updated in the same place.
 
  To get the correct UTC date I made sure to use the **.getUTC[time]** of each part of the date objects. To double check I was getting the UTC time and not my own time I also added the hour and minutes to output. I left it commented out in the **index.js** if you're interested in trying that out, otherwise it will output per the requirements.  
 
  I kept the random number generator in to make sure each run was uniquely named so there were no conflicts if one wanted to spin up a few instances.
-
-## Known issues
-
-- I tried to get the web-app's site_config **scm_type** set to "Local Git" but it does not seem to play nice with the Free Tier SKU. As it is set up now it will default to "External Git" and reference this repo.
 
 ## Future Enhancements
 
