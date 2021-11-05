@@ -47,12 +47,24 @@ cd .\terraform\
 
 ### Parameters
 
-| Name                  | Description                               |
-| ----------------------|-------------------------------------------| 
-| `arm_principal`       | Service Principal Application (client) ID |
-| `arm_password`        | Service Principal Secret value            | 
-| `arm_subscription_id` | Target subscription ID                    |  
-| `tenant_id`           | Target Tenant ID                          | 
+| Name                  |Required| Description                               |
+| ----------------------|--------|-------------------------------------------| 
+| `arm_principal`       | Yes    | Service Principal Application (client) ID |
+| `arm_password`        | Yes    | Service Principal Secret value            | 
+| `arm_subscription_id` | Yes    | Target subscription ID                    |  
+| `tenant_id`           | Yes    | Target Tenant ID                          |
+| `myResourceGroupName` | No     | Optional ResourcGroup Name. Defaults to **myResourceGroup** if not defined in your .tfvars file | 
+| `myWebAppName`        | No     | Optional WebApp Name. Defaults to **webapp** if not defined in your .tfvars file | 
+| `myLocation`          | No     | Optional location name. Defaults to **southcentralus** if not defined in your .tfvars file | 
+
+NOTE: location codes for current azure regions can be found using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) Command below:
+
+```bash
+az account list-locations -o table
+```
+
+Both the **DisplayName** and **Name** outputs from this list will work for the `myLocation` paramater 
+
 
 3. Initialize terraform
 
@@ -97,6 +109,13 @@ Like any good new tech project starts, I began by googling the items needed. I k
 
 After following the first tutorial link to deploy the basic web app I worked my way through the criteria to add the necessary components. Originally the source control of the web app was using the **node.js** template I linked below, and because I knew it would be needed to be edited I forked it into my repositories and worked on the **index.js** from there. I realized I could keep the same files all in one repo so I ported them over to this one so the terraform deployment and source files for the web app could be updated in the same place.
 
+## Known issues
+
+- I tried to get the web-app's scm_type set to "Local Git" 
+
+## Future Enhancements
+
+- I would like to update this to use an asyncronous call so that the time continually updates to the current time, like this website I found to double check I was getting the right time 
 
 ## Links used
 

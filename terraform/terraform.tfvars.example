@@ -9,3 +9,8 @@ arm_subscription_id = "YOUR_SUBSCRIPTION_ID"
 
 #Your Azure Tenant the subscription resides in
 tenant_id = "YOUR_TENANT_ID"
+
+# optional parameters 
+# myResourceGroupName = "YOUR_RG_NAME"
+# myWebAppName = "YOUR_WEBAPP_NAME"
+# myLocation = "YOUR_LOCATION"
