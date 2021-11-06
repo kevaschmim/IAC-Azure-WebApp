@@ -1,10 +1,10 @@
-# Infrasctructure as Code: Azure Date WebApp using Terraform
+# Infrastructure as Code: Azure Date WebApp using Terraform
 
 Builds a basic node.js web app that outputs the current UTC date in JSON format. 
 
 **On this page**
 
-- [Infrasctructure as Code: Azure Date WebApp using Terraform](#infrasctructure-as-code-azure-date-webapp-using-terraform)
+- [Infrastructure as Code: Azure Date WebApp using Terraform](#infrastructure-as-code-azure-date-webapp-using-terraform)
   - [Prerequisites](#prerequisites)
   - [How to run](#how-to-run)
     - [Parameters](#parameters)
