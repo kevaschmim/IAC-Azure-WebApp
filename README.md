@@ -1,6 +1,6 @@
 # Infrastructure as Code: Azure Date WebApp using Terraform
 
-Builds a basic node.js web app that outputs the current UTC date in JSON format. 
+Builds a basic node.js web app that outputs the current UTC date in JSON format.
 
 **On this page**
 
@@ -53,7 +53,7 @@ cd .\terraform\
 | `arm_password`        | Yes    | Service Principal Secret value            |
 | `arm_subscription_id` | Yes    | Target subscription ID                    |  
 | `tenant_id`           | Yes    | Target Tenant ID                          |
-| `myResourceGroupName` | No     | Optional ResourcGroup Name. Defaults to **myResourceGroup** if not defined in your .tfvars file |
+| `myResourceGroupName` | No     | Optional ResourceGroup Name. Defaults to **myResourceGroup** if not defined in your .tfvars file |
 | `myWebAppName`        | No     | Optional WebApp Name. Defaults to **webapp** if not defined in your .tfvars file |
 | `myLocation`          | No     | Optional location name. Defaults to **southcentralus** if not defined in your .tfvars file |
 
@@ -120,9 +120,9 @@ After following the first tutorial link to deploy the basic web app I worked my 
 
 ## Future Enhancements
 
-- Update this to use an asyncronous call so that the time continually updates to the current time, like this [timeanddate](https://www.timeanddate.com/worldclock/timezone/utc) website I found to double check I was getting the right time
+- Update this to use an asynchronous call so that the time continually updates to the current time, like this [timeanddate](https://www.timeanddate.com/worldclock/timezone/utc) website I found to double check I was getting the right time
 - Include a github action to update the web app whenever a change is pushed to main branch of this repo, something like this [example starter workflow](https://github.com/actions/starter-workflows/blob/1d8891efc2151b2290b1d93e8489f9b1f41bd047/deployments/azure.yml)
-- Going along with the asyncronous update, I'd make sure the hour and minute times both showed 2 digits (i.e. 11:05 instead of 11:5 as it is now) 
+- Going along with the asynchronous update, I'd make sure the hour and minute times both showed 2 digits (i.e. 11:05 instead of 11:5 as it is now).
 
 ## Links used
 
